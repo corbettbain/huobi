@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="216.0" prefWidth="291.0" fx:controller="com.huobi.javafx.controller.ConfigController" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="symbol" layoutX="107.0" layoutY="38.0" />
+      <TextField fx:id="heightest" layoutX="107.0" layoutY="72.0" />
+      <Label layoutX="63.0" layoutY="111.0" prefWidth="44.0" text="normal:" AnchorPane.leftAnchor="63.0" />
+      <Label layoutX="40.0" layoutY="144.0" prefHeight="15.0" prefWidth="69.0" text="fluctuation:" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="173.0" />
+      <TextField fx:id="normal" layoutX="107.0" layoutY="107.0" />
+      <TextField fx:id="fluctuation" layoutX="107.0" layoutY="140.0" />
+      <Label layoutX="60.0" layoutY="42.0" prefHeight="15.0" prefWidth="50.0" text="symbol:" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="173.0" />
+      <Label layoutX="47.0" layoutY="76.0" prefHeight="15.0" prefWidth="91.0" text="heightest:" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="179.0" />
+      <HBox alignment="CENTER" layoutX="86.0" layoutY="179.0">
+         <children>
+            <Button layoutX="70.0" layoutY="179.0" mnemonicParsing="false" onAction="#commit" text="确定">
+               <HBox.margin>
+                  <Insets right="40.0" />
+               </HBox.margin>
+            </Button>
+            <Button layoutX="133.0" layoutY="179.0" mnemonicParsing="false" text="取消" />
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+   </children>
+</AnchorPane>
