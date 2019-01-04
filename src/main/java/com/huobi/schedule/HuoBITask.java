@@ -9,6 +9,7 @@ import com.huobi.service.HuoBiService;
 import com.huobi.service.Message;
 import com.huobi.utils.HuoBiUtil;
 import javafx.application.Platform;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -26,6 +27,7 @@ public class HuoBITask {
         this.rootController = rootController;
     }
 
+    @Async
     @Scheduled(fixedRate = 10 * 1000)
     public void doit() {
         HuoBiData huoBiData;
@@ -39,7 +41,7 @@ public class HuoBITask {
                 rootController.getClose().setText(String.valueOf(huoBiData.getClose().doubleValue()));
                 rootController.getPreg().setText(
                         String.valueOf(HuoBiUtil.getPercentage(huoBiData.getOpen(),huoBiData.getClose()).doubleValue()));
-                rootController.getTime().setText("【" + DateFormat.date2Str(new Date(), "yyyy-MM-dd HH:mm:ss") + "】");
+//                rootController.getTime().setText("【" + DateFormat.date2Str(new Date(), "yyyy-MM-dd HH:mm:ss") + "】");
             });
             Message defaultMessage = SpringContextUtil.getBean(WarningTypeEnum.DEFAULT.getCalculateBean());
             Message fluctuationMessage = SpringContextUtil.getBean(WarningTypeEnum.FLUCTUATION.getCalculateBean());
@@ -54,4 +56,9 @@ public class HuoBITask {
         }
     }
 
+    @Async
+    @Scheduled(fixedRate = 1000)
+    public void updateTime(){
+        Platform.runLater(() -> rootController.getTime().setText("【" + DateFormat.date2Str(new Date(), "yyyy-MM-dd HH:mm:ss") + "】"));
+    }
 }

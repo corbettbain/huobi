@@ -6,7 +6,6 @@ import com.huobi.javafx.controller.RootController;
 import com.huobi.schedule.HuoBITask;
 import com.huobi.service.HuoBiService;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseButton;
@@ -15,11 +14,11 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.stage.WindowEvent;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.awt.*;
@@ -28,6 +27,7 @@ import java.util.concurrent.CompletableFuture;
 
 @SpringBootApplication
 @EnableScheduling
+@EnableAsync
 @ComponentScan("com")
 public class HuobiApplication extends Application {
 

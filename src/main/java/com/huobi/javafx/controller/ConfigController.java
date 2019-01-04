@@ -66,4 +66,9 @@ public class ConfigController {
 
         stage.close();
     }
+
+    @FXML
+    private void quit(){
+        stage.close();
+    }
 }
